@@ -1,0 +1,9 @@
+services:
+  redact:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      # Override in your shell or a .env file: REDACT_SALT=some-long-random-string
+      REDACT_SALT: ${REDACT_SALT:-dev-only-salt}
+    restart: unless-stopped
